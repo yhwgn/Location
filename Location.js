@@ -185,22 +185,22 @@ function makeLocation(){
 
 function modTick(){
 	try{
-	var string = "";
-	if(Toggle.xyz) string += "XYZ: " + Entity.getX(getPlayerEnt()) + " / " + Entity.getY(getPlayerEnt()) + " / " + Entity.getZ(getPlayerEnt());
-	if(Toggle.facing) {
-		if(Math.abs(Entity.getYaw(getPlayerEnt()))<=45) string += "\nFacing: South (+Z)";
-		if(Entity.getYaw(getPlayerEnt())>45 && Entity.getYaw(getPlayerEnt())<135) string += "\nFacing: West (-X)";
-		if(Math.abs(Entity.getYaw(getPlayerEnt()))>=135) string += "\nFacing: North (-Z)";
-		if(Entity.getYaw(getPlayerEnt())>-90 && Entity.getYaw(getPlayerEnt())<-45) string += "\nFacing: East (+X)";
-	}
-	if(Toggle.biome) string += "\nBiome: " + Level.getBiomeName(Entity.getX(getPlayerEnt()), Entity.getZ(getPlayerEnt()));
-	if(isVisible) ui(function(){
-		try{
-			loc.setText(string);
-		} catch(err) {
-			print("load info " + err.lineNumber + "\n" + err);
+		var string = "";
+		if(Toggle.xyz) string += "XYZ: " + Entity.getX(getPlayerEnt()) + " / " + Entity.getY(getPlayerEnt()) + " / " + Entity.getZ(getPlayerEnt());
+		if(Toggle.facing) {
+			if(Math.abs(Entity.getYaw(getPlayerEnt()))<=45) string += "\nFacing: South (+Z)";
+			if(Entity.getYaw(getPlayerEnt())>45 && Entity.getYaw(getPlayerEnt())<135) string += "\nFacing: West (-X)";
+			if(Math.abs(Entity.getYaw(getPlayerEnt()))>=135) string += "\nFacing: North (-Z)";
+			if(Entity.getYaw(getPlayerEnt())>(-90) && Entity.getYaw(getPlayerEnt())<(-45)) string += "\nFacing: East (+X)";
 		}
-	});
+		if(Toggle.biome) string += "\nBiome: " + Level.getBiomeName(Entity.getX(getPlayerEnt()), Entity.getZ(getPlayerEnt()));
+		if(isVisible) ui(function(){
+			try{
+				loc.setText(string);
+			} catch(err) {
+				print("load info " + err.lineNumber + "\n" + err);
+			}
+		});
 	}catch(err){
 		print(err);
 	}
