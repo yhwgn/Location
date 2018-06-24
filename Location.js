@@ -130,13 +130,11 @@ function makeBtn(){
 								if(isVisible){
 									isVisible = false;
 									loc.setVisibility(View.INVISIBLE);
-								}
-								else{
+								}else{
 									isVisible = true;
 									loc.setVisibility(View.VISIBLE);
 								}
-							}
-							else {
+							}else{
 								click = true;
 								if(dgr.getVisibility()==View.VISIBLE) dgr.setVisibility(View.INVISIBLE);
 								btnWindow.update(dp(10),dp(10),dp(40),dp(40),true);
@@ -148,7 +146,7 @@ function makeBtn(){
 			}));
 			btnWindow = new PopupWindow(btn, dp(40), dp(40));
 			btnWindow.showAtLocation(ctx.getWindow().getDecorView(), Gravity.LEFT|Gravity.BOTTOM, dp(10), dp(10));
-		} catch(err) {
+		}catch(err){
 			print("load btn " + err.lineNumber + "\n" + err);
 		}
 	});
@@ -163,7 +161,7 @@ function makeDegree(){
 			dgrWindow = new PopupWindow(dgr, Device.height/3, Device.height/3);
 			dgrWindow.setTouchable(false);
 			dgrWindow.showAtLocation(ctx.getWindow().getDecorView(), Gravity.LEFT|Gravity.BOTTOM, 0, 0);
-		} catch(err) {
+		}catch(err){
 			print("load degree " + err.lineNumber + "\n" + err);
 		}
 	});
@@ -178,31 +176,33 @@ function makeLocation(){
 			locWindow = new PopupWindow(loc, android.widget.LinearLayout.LayoutParams.WRAP_CONTENT, android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
 			locWindow.setTouchable(false);
 			locWindow.showAtLocation(ctx.getWindow().getDecorView(), Gravity.LEFT|Gravity.TOP, 0, 0);
-		} catch(err) {
+		}catch(err){
 			print("load location " + err.lineNumber + "\n" + err);
 		}
 	});
 }
 
 function modTick(){
-	try{
-		var string = "";
-		if(Toggle.xyz) string += "XYZ: " + Entity.getX(getPlayerEnt()) + " / " + Entity.getY(getPlayerEnt()) + " / " + Entity.getZ(getPlayerEnt());
-		if(Toggle.facing) {
-			if(Math.abs(Entity.getYaw(getPlayerEnt()))<=45) string += "\nFacing: South (+Z)";
-			if(Entity.getYaw(getPlayerEnt())>45 && Entity.getYaw(getPlayerEnt())<135) string += "\nFacing: West (-X)";
-			if(Math.abs(Entity.getYaw(getPlayerEnt()))>=135) string += "\nFacing: North (-Z)";
-			if(Entity.getYaw(getPlayerEnt())>-135 && Entity.getYaw(getPlayerEnt())<-45) string += "\nFacing: East (+X)";
-		}
-		if(Toggle.biome) string += "\nBiome: " + Level.getBiomeName(Entity.getX(getPlayerEnt()), Entity.getZ(getPlayerEnt()));
-		if(isVisible && dgrWindow != null) ui(function(){
-			try{
-				loc.setText(string);
-			} catch(err) {
-				print("load info " + err.lineNumber + "\n" + err);
+	if(isVisible){
+		try{
+			var string = "";
+			if(Toggle.xyz) string += "XYZ: " + Entity.getX(getPlayerEnt()) + " / " + Entity.getY(getPlayerEnt()) + " / " + Entity.getZ(getPlayerEnt());
+			if(Toggle.facing) {
+				if(Math.abs(Entity.getYaw(getPlayerEnt()))<=45) string += "\nFacing: South (+Z)";
+				if(Entity.getYaw(getPlayerEnt())>45 && Entity.getYaw(getPlayerEnt())<135) string += "\nFacing: West (-X)";
+				if(Math.abs(Entity.getYaw(getPlayerEnt()))>=135) string += "\nFacing: North (-Z)";
+				if(Entity.getYaw(getPlayerEnt())>-135 && Entity.getYaw(getPlayerEnt())<-45) string += "\nFacing: East (+X)";
 			}
-		});
-	}catch(err){
-		print(err);
+			if(Toggle.biome) string += "\nBiome: " + Level.getBiomeName(Entity.getX(getPlayerEnt()), Entity.getZ(getPlayerEnt()));
+			ui(function(){
+				try{
+					loc.setText(string);
+				} catch(err) {
+					print("load info " + err.lineNumber + "\n" + err);
+				}
+			});
+		}catch(err){
+			print(err);
+		}
 	}
 }
