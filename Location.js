@@ -91,10 +91,10 @@ function leaveGame(){
       btnWindow.dismiss();
       btnWindow = null;
     }
-		if(dgrWindow != null){
+		/*if(dgrWindow != null){
       dgrWindow.dismiss();
       dgrWindow = null;
-    }
+    }*/
   });
 }
 
