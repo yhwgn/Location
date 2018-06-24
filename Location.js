@@ -90,7 +90,7 @@ function leaveGame(){
             btnWindow.dismiss();
             btnWindow = null;
         }
-		if(dgrWindow != null){
+				if(dgrWindow != null){
             dgrWindow.dismiss();
             dgrWindow = null;
         }
@@ -194,7 +194,7 @@ function modTick(){
 			if(Entity.getYaw(getPlayerEnt())>(-90) && Entity.getYaw(getPlayerEnt())<(-45)) string += "\nFacing: East (+X)";
 		}
 		if(Toggle.biome) string += "\nBiome: " + Level.getBiomeName(Entity.getX(getPlayerEnt()), Entity.getZ(getPlayerEnt()));
-		if(isVisible) ui(function(){
+		if(isVisible && dgrWindow != null) ui(function(){
 			try{
 				loc.setText(string);
 			} catch(err) {
