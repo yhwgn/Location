@@ -191,7 +191,7 @@ function modTick(){
 			if(Math.abs(Entity.getYaw(getPlayerEnt()))<=45) string += "\nFacing: South (+Z)";
 			if(Entity.getYaw(getPlayerEnt())>45 && Entity.getYaw(getPlayerEnt())<135) string += "\nFacing: West (-X)";
 			if(Math.abs(Entity.getYaw(getPlayerEnt()))>=135) string += "\nFacing: North (-Z)";
-			if(Entity.getYaw(getPlayerEnt())>(-90) && Entity.getYaw(getPlayerEnt())<(-45)) string += "\nFacing: East (+X)";
+			if(Entity.getYaw(getPlayerEnt())>-135 && Entity.getYaw(getPlayerEnt())<-45) string += "\nFacing: East (+X)";
 		}
 		if(Toggle.biome) string += "\nBiome: " + Level.getBiomeName(Entity.getX(getPlayerEnt()), Entity.getZ(getPlayerEnt()));
 		if(isVisible && dgrWindow != null) ui(function(){
