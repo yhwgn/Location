@@ -85,16 +85,17 @@ function newLevel(){
 }
 
 function leaveGame(){
-    ui(function(){
-        if(btnWindow != null){
-            btnWindow.dismiss();
-            btnWindow = null;
-        }
-				if(dgrWindow != null){
-            dgrWindow.dismiss();
-            dgrWindow = null;
-        }
-    });
+	isVisible = false;
+  ui(function(){
+    if(btnWindow != null){
+      btnWindow.dismiss();
+      btnWindow = null;
+    }
+		if(dgrWindow != null){
+      dgrWindow.dismiss();
+      dgrWindow = null;
+    }
+  });
 }
 
 function makeBtn(){
