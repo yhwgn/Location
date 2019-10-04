@@ -97,7 +97,8 @@ function leaveGame(){
     }
     if(locWindow != null){
       locWindow.dismiss();
-      locWindow = null;
+      locWindow = null;
+    }
   });
 }
 
