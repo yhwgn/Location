@@ -175,6 +175,7 @@ function makeLocation(){
 		try{
 			loc = new TextView(ctx);
 			loc.setTextColor(Color.WHITE);
+			loc.setShadowLayer(5, 0, 0, Color.BLACK);
 			loc.setVisibility(View.INVISIBLE);
 			locWindow = new PopupWindow(loc, android.widget.LinearLayout.LayoutParams.WRAP_CONTENT, android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
 			locWindow.setTouchable(false);
