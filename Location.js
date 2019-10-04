@@ -178,7 +178,7 @@ function makeLocation(){
 			loc.setVisibility(View.INVISIBLE);
 			locWindow = new PopupWindow(loc, android.widget.LinearLayout.LayoutParams.WRAP_CONTENT, android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
 			locWindow.setTouchable(false);
-			locWindow.showAtLocation(ctx.getWindow().getDecorView(), Gravity.LEFT|Gravity.TOP, 0, 0);
+			locWindow.showAtLocation(ctx.getWindow().getDecorView(), Gravity.LEFT|Gravity.TOP, dp(10), dp(10));
 		}catch(err){
 			print("load location " + err.lineNumber + "\n" + err);
 		}
