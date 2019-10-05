@@ -85,20 +85,24 @@ function newLevel(){
 }
 
 function leaveGame(){
-	isVisible = false;
-  ui(function(){
-    if(btnWindow != null){
-      btnWindow.dismiss();
-      btnWindow = null;
-    }
-    if(dgrWindow != null){
-      dgrWindow.dismiss();
-      dgrWindow = null;
-    }
-    if(locWindow != null){
-      locWindow.dismiss();
-      locWindow = null;
-    }
+    isVisible = false;
+    ui(function(){
+    	try{
+            if(btnWindow != null){
+                btnWindow.dismiss();
+                btnWindow = null;
+            }
+            if(dgrWindow != null){
+                dgrWindow.dismiss();
+                dgrWindow = null;
+            }
+            if(locWindow != null){
+                locWindow.dismiss();
+                locWindow = null;
+            }
+        }catch(e){
+            print(e);
+        }
   });
 }
 
