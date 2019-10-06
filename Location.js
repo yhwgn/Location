@@ -103,7 +103,7 @@ function leaveGame(){
         }catch(e){
             print(e);
         }
-  });
+    });
 }
 
 function makeBtn(){
